@@ -5,7 +5,7 @@ function render(data) {
         return (`
             <li class="chat-item">
                 <strong class="text-primary">${elem.author}</strong>
-                <span class="text-danger">[${Date()}]: </span>
+                <span class="text-danger">[${elem.date}]: </span>
                 <em class="text-success">${elem.text}</em>
             </li>
         `)
@@ -15,13 +15,16 @@ function render(data) {
 }
 
 function addMessage(e) {
-    /* e.preventDefault() */
+    const date = Date()
     const message = {
         author: document.getElementById('userEmail').value,
-        text: document.getElementById('textMessage').value
+        text: document.getElementById('textMessage').value,
+        date: date
     }
     console.log(message);
     socket.emit('new-message', message)
+
+    document.getElementById('textMessage').value = ''   
     return false
 }
 
