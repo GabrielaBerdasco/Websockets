@@ -1,0 +1,14 @@
+<div class="bg-light m-5 p-5">
+    <h2 class="text-primary">Ingrese Producto</h2>
+    <form action="/products" method="post" class="d-flex flex-column align-items-start" style="margin: 1rem;">
+        <label for="name">Producto</label>
+        <input type="text" name="name" required>
+        <label for="price">Precio</label>
+        <input type="number" name="price" required>
+        <label for="image">Imagen</label>
+        <input type="text" name="image" required>
+        <a href="http://localhost:8080/products" style="margin: 1rem;">
+            <button class="btn btn-success mt-3 mb-5">Guardar producto</button>
+        </a>
+    </form>
+</div>
