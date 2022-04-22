@@ -9,7 +9,7 @@
                     <th scope="col">Imagen</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="products">
                 {{#each products}}
                 <tr>
                     <td>{{name}}</td>
@@ -17,6 +17,7 @@
                     <td><img src="{{image}}" alt="{{name}}" width="100"></td>
                 </tr>
                 {{/each}}
+            </tbody>
         </table>
     {{else}}
         <h1>No hay productos</h1>

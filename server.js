@@ -1,5 +1,7 @@
 const express = require('express');
 const routerProducts = require('./routes/index.js')
+const { saveProduct, getProducts } = require('./controllers/container.js')
+
 const { Server: HttpServer } = require('http');
 const { Server: IOServer } = require('socket.io');
 
@@ -61,10 +63,15 @@ const dataMessages = [
 ioServer.on('connection', (socket) => {
     console.log('Nueva conexión')
     socket.emit('messages', dataMessages)
-
     socket.on('new-message', (data) => {
         dataMessages.push(data)
         ioServer.sockets.emit('messages', dataMessages)
+    })
+    
+    socket.emit('products', getProducts())
+    socket.on('new-product', (product) => {
+        saveProduct(product)
+        ioServer.sockets.emit('products', getProducts())
     })
 
 })
