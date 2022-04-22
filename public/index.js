@@ -69,7 +69,7 @@ function addProduct(e) {
 }
 
 socket.on('products', (data) => {
-    document.getElementById('products').innerHTML = templateTable({productos : data})
+    document.getElementById('products').innerHTML = template({productos: data})
 })
 
 socket.on('messages', (dataMessages) => {
