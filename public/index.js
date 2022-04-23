@@ -28,7 +28,7 @@ function addMessage(e) {
     return false
 }
 
-const template = Handlebars.compile(`
+/* const template = Handlebars.compile(`
     {{#each products}}
         <tr>
             <td>{{name}}</td>
@@ -36,7 +36,7 @@ const template = Handlebars.compile(`
             <td><img src="{{image}}" alt="{{name}}" width="100"></td>
         </tr>
     {{/each}}
-`)
+`) */
 
 /* function renderProducts(data) {
     const html = data.map((elem, index) => {
@@ -52,7 +52,7 @@ const template = Handlebars.compile(`
     document.getElementById('products').innerHTML = html
 } */
 
-function addProduct(e) {
+/* function addProduct(e) {
     const product = {
         name: document.getElementById('name').value,
         price: document.getElementById('price').value,
@@ -66,11 +66,26 @@ function addProduct(e) {
     document.getElementById('image').value = ''
 
     return false
+} */
+
+/* function addGreeting(e) {
+    const greeting = document.getElementById('greeting').value
+    console.log(greeting);
+    socket.emit('new-greeting', greeting)
+
+    document.getElementById('greeting').value = ''
+
+    return false
 }
 
-socket.on('products', (data) => {
+socket.on('greetings', (saludos) => {
+    console.log(saludos)
+    document.getElementById('greetings').innerHTML = saludos
+}) */
+
+/* socket.on('products', (data) => {
     document.getElementById('products').innerHTML = template({productos: data})
-})
+})*/
 
 socket.on('messages', (dataMessages) => {
     render(dataMessages)

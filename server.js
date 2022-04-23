@@ -60,18 +60,32 @@ const dataMessages = [
     }
 ]
 
+const saludos = "hola mundo"
+
 ioServer.on('connection', (socket) => {
     console.log('Nueva conexión')
-    socket.emit('messages', dataMessages)
+    
+    socket.emit('messages', dataMessages);
     socket.on('new-message', (data) => {
         dataMessages.push(data)
         ioServer.sockets.emit('messages', dataMessages)
-    })
+    });
     
-    socket.emit('products', getProducts())
+    /* socket.emit('greetings', saludos)
+    socket.on('new-greeting', (saludo) => {
+        saludos = saludo
+        ioServer.sockets.emit('greetings', saludos)
+    }); */
+    /* socket.on('greetings', (data) => {
+        saludos = data
+        ioServer.sockets.emit('greetings', saludos)
+    }); */
+
+    /* socket.emit('products', getProducts());
     socket.on('new-product', (product) => {
         saveProduct(product)
+        console.log("productos");
         ioServer.sockets.emit('products', getProducts())
-    })
+    }); */
 
 })
