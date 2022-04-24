@@ -1,4 +1,5 @@
 const socketP = io.connect()
+const Handlebars = require("handlebars");
 
 const template = Handlebars.compile(`
     {{#each products}}
